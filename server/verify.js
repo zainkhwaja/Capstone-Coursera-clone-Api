@@ -61,7 +61,7 @@ exports.nocache = function nocache(req, res, next) {
 
 exports.verifyAdmin = function(req, res, next) {
     // check header or url parameters or post parameters for token
-    var user = req._user.role == 0;
+    var user = req._user.roles == 2;
     log(user);
     // decode token
     if (user) {
@@ -85,7 +85,7 @@ exports.verifyAdmin = function(req, res, next) {
 
 exports.verifyStudent = function(req, res, next) {
     // body...
-    if (req._user.role == 0) {
+    if (req._user.roles == 0) {
         next();
     } else {
         res.status(403).json({
@@ -96,7 +96,7 @@ exports.verifyStudent = function(req, res, next) {
 
 exports.verifyInstructor = function(req, res, next) {
     // body...
-    if (req._user.role == 1) {
+    if (req._user.roles == 1) {
         next();
     } else {
         res.status(403).json({

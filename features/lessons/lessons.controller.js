@@ -108,19 +108,14 @@ exports.completeSingleLesson = function(req, res) {
                             }
                         }
 
-
                     }
                     // log(course.enrollment[j].completedLessons.length, course.lessons.length);
-
-
-
-
 
                     if (course.enrollment[j].completedLessons.length === course.lessons.length) {
 
                         // log(course.enrollment[j].completedAll);
                         course.enrollment[j].completedAll = true
-                        // course.enrollment[j].rating = { 1, 2, 3, 4, 5 };
+                            // course.enrollment[j].rating = { 1, 2, 3, 4, 5 };
 
                     }
                 }
